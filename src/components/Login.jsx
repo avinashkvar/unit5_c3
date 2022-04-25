@@ -1,17 +1,38 @@
 import {Tempcontext} from './LogContext'
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 export const Login = () => {
   //  use reqres to log user in.
+  const [data,setData]=useState([])
+  
+  useEffect(()=>{
+    emp()
+  },[])
+  	async function emp() {
+		let res = await fetch('http://localhost:8080/employee');
+		let data = await res.json();
+		setData(data);
+	}
+  
   const [user,setUser]=useState({})
   const nav = useNavigate()
   const { isAuth, toggleAuth } = useContext(Tempcontext)
   function sendToken(e) { 
     e.preventDefault()
-
-    toggleAuth(user)
-    nav(-2,{replace:true})  
+    let a=false
+    data.map((e)=>{
+      if(e.username==user.username || e.password==user.password){
+        toggleAuth();
+		    nav(-2, { replace: true });  
+        a=true
+      }
+    })
+    if(a){
+      return 
+    }else{
+      alert('wrong email or password');
+    }
     
   }
   const handelchange = (e) => {
