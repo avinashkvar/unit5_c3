@@ -22,18 +22,17 @@ export const EmployeeList = () => {
 			{/* On clicking this card anywhere, user goes to user details */}
 			{user.map((e,i) => {
 				return (
-					<Link
-						className="employee_card"
-						to={`/employees/${e.employee_id}`}
-					>
-						<img
-							className="employee_image"
-							src={e.image}
-							height="200px"
-							width="200px"
-						/>
-						<span className="employee_name">{e.employee_name} / </span>
-						<span className="employee_title">{e.title}</span>
+					<Link to={`/employees/${e.employee_id}`}>
+						<div className="employee_card">
+							<img
+								className="employee_image"
+								src={e.image}
+								height="200px"
+								width="200px"
+							/>
+							<span className="employee_name">{e.employee_name} / </span>
+							<span className="employee_title">{e.title}</span>
+						</div>
 					</Link>
 				);
 			})}

@@ -7,7 +7,8 @@ import { createContext, useState } from "react";
 export const Tempcontext = createContext()
 export const Tempcontextprovider = ({ children }) => {
     const [isAuth, setisAuth] = useState(false)
-    function toggleAuth() { 
+    function toggleAuth(data) { 
+        console.log(data)
         setisAuth((p) => {
             return !p
         })
