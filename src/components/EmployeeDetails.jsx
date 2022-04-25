@@ -27,9 +27,13 @@ export const EmployeeDetails = () => {
 			Status: <b className="status">{user.status}</b>
 			Title: <b className="title">{user.title}</b>
 			{/* Show this button only if user is not already terminated (users status is working) */}
-			<button className="fire">Fire Employee</button>
+			{user.status === 'terminated' ? null : (
+				<button className="fire">Fire Employee</button>
+			)}
 			{/* Show this button only if user is not already team lead or terminated */}
-			<button className="promote">promote</button>
+			{user.status === 'terminated' ? null : (
+				<button className="promote">promote</button>
+			)}
 		</div>
 	);
 };
