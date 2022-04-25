@@ -16,7 +16,6 @@ export const EmployeeDetails = () => {
 			})
 			.then(function () {});
   })
-  
 	return (
 		<div className="user_details">
 			<img className="user_image" src={user.image} />
