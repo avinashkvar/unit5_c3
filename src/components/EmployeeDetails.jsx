@@ -16,6 +16,8 @@ export const EmployeeDetails = () => {
 			})
 			.then(function () {});
   })
+
+  
 	return (
 		<div className="user_details">
 			<img className="user_image" src={user.image} />
@@ -28,7 +30,7 @@ export const EmployeeDetails = () => {
 			Title: <b className="title">{user.title}</b>
 			{/* Show this button only if user is not already terminated (users status is working) */}
 			{user.status === 'terminated' ? null : (
-				<button className="fire">Fire Employee</button>
+				<button className="fire" >Fire Employee</button>
 			)}
 			{/* Show this button only if user is not already team lead or terminated */}
 			{user.status === 'terminated' ? null : (
